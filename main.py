@@ -1,16 +1,7 @@
     def read_the_chats(self):
         chat_type = self.text.split(" ")
 
-        if len(chat_type) < 3:
-            send_message = (f"{ConstICO.WARNING} Укажите тип чата. Все типы:\n"
-                            "все - читает все чаты\n"
-                            "лс - читает лс\n"
-                            "беседы - чититет беседы\n"
-                            "группы - читает группы\n")
-            self.edit_messages(self.api, self.peer_id, send_message, self.message_id)
-            return
-
-        if chat_type[2].lower() not in ['все', 'лс', 'беседы', 'группы']:
+        if len(chat_type) < 3 or chat_type[2].lower() not in ['все', 'лс', 'беседы', 'группы']:
             send_message = (f"{ConstICO.WARNING} Укажите тип чата. Все типы:\n"
                             "все - читает все чаты\n"
                             "лс - читает лс\n"
